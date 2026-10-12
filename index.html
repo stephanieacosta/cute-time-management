@@ -140,7 +140,7 @@ input[type=time]::-webkit-calendar-picker-indicator{-webkit-appearance:none;appe
 .meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:3px}
 .pill{font-size:12px;padding:2px 9px;border-radius:99px;background:var(--card);color:var(--ink2);font-variant-numeric:tabular-nums}
 .pill.cat{display:inline-flex;align-items:center;gap:4px;background:color-mix(in srgb,var(--c) 38%,var(--card));color:var(--ink)}
-.pill.cat svg{width:11px;height:11px;color:var(--d)}
+.pill.cat svg{width:13px;height:13px;color:var(--d)}
 .x{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;color:var(--ink2)}
 .x:hover{background:var(--card);color:var(--ink)}
 .x svg{width:14px;height:14px}
@@ -216,8 +216,8 @@ input[type=time]::-webkit-calendar-picker-indicator{-webkit-appearance:none;appe
 .ddbtn{display:flex;align-items:center;gap:8px;text-align:left;cursor:pointer}
 .ddn{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .chev{width:16px;height:16px;flex:none;color:var(--ink2)}
-.dot{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;flex:none;background:color-mix(in srgb,var(--c) 55%,var(--card))}
-.dot svg{width:13px;height:13px;color:var(--d)}
+.dot{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;flex:none;background:color-mix(in srgb,var(--c) 55%,var(--card))}
+.dot svg{width:15px;height:15px;color:var(--d)}
 .menu{position:absolute;z-index:30;top:calc(100% + 8px);right:0;left:auto;width:max(100%,210px);max-width:calc(100vw - 32px);max-height:290px;overflow:auto;list-style:none;margin:0;padding:6px;background:var(--card);border-radius:20px;box-shadow:0 0 0 3px var(--soft),0 8px 0 var(--edge)}
 .opt{display:flex;align-items:center;gap:10px;width:100%;padding:8px 10px;border-radius:12px;text-align:left}
 .opt:hover,.opt[aria-selected="true"]{background:var(--soft)}
@@ -226,8 +226,37 @@ input[type=time]::-webkit-calendar-picker-indicator{-webkit-appearance:none;appe
 .crow{display:flex;align-items:center;gap:8px}
 .crow .field{background:var(--card);padding:9px 12px}
 .sw{width:34px;height:34px;border:2px solid var(--d)}
-.sw svg{width:16px;height:16px}
+.sw svg{width:18px;height:18px}
+.cfm{display:flex;flex-wrap:wrap;align-items:center;gap:8px;background:var(--card);border:2px solid #e5566d;border-radius:16px;padding:8px 8px 8px 12px}
+.cfq{flex:1 1 150px;min-width:0;font-weight:600;font-size:14px}
+.cfb{display:flex;flex-wrap:wrap;gap:8px}
+.cfm .btn{padding:8px 14px;font-size:14px}
+.btn.danger{background:#e5566d;color:#fff;box-shadow:0 4px 0 #b83a50}
+.pick{display:flex;flex-direction:column;gap:10px;background:var(--card);border-radius:16px;padding:10px}
+.pcs{display:flex;flex-wrap:wrap;gap:8px}
+.pc{width:28px;height:28px;border-radius:50%;background:var(--c);border:3px solid transparent;box-shadow:0 0 0 1px color-mix(in srgb,var(--ink) 20%,transparent)}
+.pc[aria-pressed="true"]{border-color:var(--ink)}
+.pgs{display:grid;grid-template-columns:repeat(auto-fill,minmax(38px,1fr));gap:4px}
+.pi{height:38px;border-radius:12px;display:grid;place-items:center;border:2px solid transparent}
+.pi svg{width:20px;height:20px;color:var(--ink)}
+.pi:hover{background:var(--soft)}
+.pi[aria-pressed="true"]{background:color-mix(in srgb,var(--c) 45%,var(--card));border-color:var(--ink)}
 .eyes{transform-box:fill-box;transform-origin:center;animation:none}
+/* iconos de categoria legibles en modo oscuro */
+@media (prefers-color-scheme: dark){
+:root:not([data-theme="light"]):not([data-mode]) .dot{background:color-mix(in srgb,var(--c) 30%,var(--card))}
+:root:not([data-theme="light"]):not([data-mode]) .dot svg,.pill.cat svg{color:var(--c)}
+:root:not([data-theme="light"]):not([data-mode]) .sw{border-color:var(--c)}
+:root:not([data-theme="light"]):not([data-mode]) .ev{border-left-color:var(--c)}
+}
+:root[data-theme="dark"]:not([data-mode]) .dot{background:color-mix(in srgb,var(--c) 30%,var(--card))}
+:root[data-mode="dark"] .dot{background:color-mix(in srgb,var(--c) 30%,var(--card))}
+:root[data-theme="dark"]:not([data-mode]) .dot svg,.pill.cat svg{color:var(--c)}
+:root[data-mode="dark"] .dot svg,.pill.cat svg{color:var(--c)}
+:root[data-theme="dark"]:not([data-mode]) .sw{border-color:var(--c)}
+:root[data-mode="dark"] .sw{border-color:var(--c)}
+:root[data-theme="dark"]:not([data-mode]) .ev{border-left-color:var(--c)}
+:root[data-mode="dark"] .ev{border-left-color:var(--c)}
 @keyframes blink{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.08)}}
 .tw{transform-box:fill-box;transform-origin:center;animation:twinkle 2.6s ease-in-out infinite}
 .tw.d2{animation-delay:-1.3s}.tw.d3{animation-delay:-.6s}
@@ -256,6 +285,40 @@ input[type=time]::-webkit-calendar-picker-indicator{-webkit-appearance:none;appe
   <symbol id="g-flower" viewBox="0 0 24 24"><g fill="currentColor"><circle cx="12" cy="6" r="4.2"/><circle cx="18" cy="10.5" r="4.2"/><circle cx="16" cy="18" r="4.2"/><circle cx="8" cy="18" r="4.2"/><circle cx="6" cy="10.5" r="4.2"/></g><circle cx="12" cy="12.5" r="2.6" fill="var(--card)"/></symbol>
   <symbol id="g-cloud" viewBox="0 0 24 24"><path fill="currentColor" d="M7 19a4.5 4.5 0 0 1-.7-8.95A6 6 0 0 1 17.6 8.6 5.2 5.2 0 0 1 17.5 19z"/></symbol>
   <symbol id="g-gem" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l8 7-8 12-8-12z"/></symbol>
+  <symbol id="g-book" viewBox="0 0 24 24"><g fill="currentColor"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v15H5.5C4.7 19 4 18.3 4 17.5zM20 5.5c0-.8-.7-1.5-1.5-1.5H13v15h5.5c.8 0 1.5-.7 1.5-1.5z"/></g></symbol>
+  <symbol id="g-cap" viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 4L2 9l10 5 10-5z"/><path d="M6 12v4.5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5V12l-6 3z"/></g></symbol>
+  <symbol id="g-pencil" viewBox="0 0 24 24"><g fill="currentColor"><path d="M3 21l1-5L16 4l4 4L8 20z"/></g></symbol>
+  <symbol id="g-laptop" viewBox="0 0 24 24"><g fill="currentColor"><rect x="5" y="5" width="14" height="10" rx="2"/></g><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 18.5h19"/></g></symbol>
+  <symbol id="g-briefcase" viewBox="0 0 24 24"><g fill="currentColor"><rect x="3" y="7.5" width="18" height="12" rx="3"/></g><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7.5V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1.5"/></g></symbol>
+  <symbol id="g-chat" viewBox="0 0 24 24"><g fill="currentColor"><path d="M4 4.5h16a1 1 0 0 1 1 1V16a1 1 0 0 1-1 1H11l-5 4v-4H4a1 1 0 0 1-1-1V5.5a1 1 0 0 1 1-1z"/></g></symbol>
+  <symbol id="g-phone" viewBox="0 0 24 24"><g fill="currentColor"><rect x="7" y="2.5" width="10" height="19" rx="3"/><circle cx="12" cy="18.5" r="1" fill="var(--card)"/></g></symbol>
+  <symbol id="g-wallet" viewBox="0 0 24 24"><g fill="currentColor"><rect x="3" y="6" width="18" height="13" rx="3"/><circle cx="16.5" cy="12.5" r="1.7" fill="var(--card)"/></g></symbol>
+  <symbol id="g-home" viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 3L2.5 11H5v9h5v-6h4v6h5v-9h2.5z"/></g></symbol>
+  <symbol id="g-cart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.5l2 11h10l2-8H7"/></g><g fill="currentColor"><circle cx="9" cy="19.5" r="1.8"/><circle cx="17" cy="19.5" r="1.8"/></g></symbol>
+  <symbol id="g-utensils" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v18M4 3v5a3 3 0 0 0 6 0V3M17 21V3c-2.5 1.5-3.5 5-3.5 8H17"/></g></symbol>
+  <symbol id="g-coffee" viewBox="0 0 24 24"><g fill="currentColor"><path d="M5 8h11v6a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5z"/></g><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10h1.5a2.5 2.5 0 0 1 0 5H16M8.5 3.5v2M12 3.5v2"/></g></symbol>
+  <symbol id="g-gift" viewBox="0 0 24 24"><g fill="currentColor"><path d="M4 11h16v9H4zM3 7.5h18V11H3z"/><path d="M12 7.5C9 7.5 7.5 4 9.8 3.8 11.5 3.7 12 6 12 7.5zM12 7.5c3 0 4.5-3.5 2.2-3.7C12.5 3.7 12 6 12 7.5z"/></g><g fill="none" stroke="var(--card)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7.5V20"/></g></symbol>
+  <symbol id="g-dumbbell" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 8v8M17.5 8v8M3.5 10.5v3M20.5 10.5v3M6.5 12h11"/></g></symbol>
+  <symbol id="g-bike" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="16" r="3.6"/><circle cx="18" cy="16" r="3.6"/><path d="M6 16l3.5-7h5.5l3 7M9.5 9L12 16M14 6.5h2.5"/></g></symbol>
+  <symbol id="g-pulse" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12h4l2.5-6 4 12 2.5-6h6"/></g></symbol>
+  <symbol id="g-pill" viewBox="0 0 24 24"><g transform="rotate(-45 12 12)"><g fill="currentColor"><rect x="2.5" y="8" width="19" height="8" rx="4"/></g><g fill="none" stroke="var(--card)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v8"/></g></g></symbol>
+  <symbol id="g-drop" viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 2.8C8 8 5.5 11.2 5.5 14.5a6.5 6.5 0 0 0 13 0C18.5 11.2 16 8 12 2.8z"/></g></symbol>
+  <symbol id="g-smile" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 14.5a4.5 4.5 0 0 0 8 0"/></g><g fill="currentColor"><circle cx="9" cy="10" r="1.3"/><circle cx="15" cy="10" r="1.3"/></g></symbol>
+  <symbol id="g-music" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17V5.5l11-2V15"/></g><g fill="currentColor"><circle cx="6.5" cy="17.5" r="3"/><circle cx="17.5" cy="15.5" r="3"/></g></symbol>
+  <symbol id="g-gamepad" viewBox="0 0 24 24"><g fill="currentColor"><path d="M7 7h10a5 5 0 0 1 4.9 6l-.7 3.5a3 3 0 0 1-5.1 1.4L15 16.5H9l-1.1 1.4a3 3 0 0 1-5.1-1.4l-.7-3.5A5 5 0 0 1 7 7z"/></g><g fill="none" stroke="var(--card)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 10v4M6 12h4"/></g><circle cx="15.5" cy="11" r="1.1" fill="var(--card)"/><circle cx="18" cy="13.5" r="1.1" fill="var(--card)"/></symbol>
+  <symbol id="g-camera" viewBox="0 0 24 24"><g fill="currentColor"><path d="M3 8h4l1.5-2.5h7L17 8h4v11H3z"/><circle cx="12" cy="13.5" r="3.3" fill="var(--card)"/></g></symbol>
+  <symbol id="g-palette" viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 3a9 9 0 1 0 0 18c1.6 0 2-1 1.4-2-.7-1.2 0-2.5 1.6-2.5H17a4 4 0 0 0 4-4c0-5-4-9.5-9-9.5z"/><circle cx="7.5" cy="11" r="1.4" fill="var(--card)"/><circle cx="10" cy="7" r="1.4" fill="var(--card)"/><circle cx="15" cy="7.5" r="1.4" fill="var(--card)"/></g></symbol>
+  <symbol id="g-plane" viewBox="0 0 24 24"><g fill="currentColor"><path d="M21.5 2.5L2.5 10l7 3 3 8z"/></g></symbol>
+  <symbol id="g-car" viewBox="0 0 24 24"><g fill="currentColor"><path d="M4.5 11l1.8-4.5A2 2 0 0 1 8.2 5h7.6a2 2 0 0 1 1.9 1.5L19.5 11H21v6h-2v2h-3v-2H8v2H5v-2H3v-6z"/><circle cx="7.5" cy="14" r="1.4" fill="var(--card)"/><circle cx="16.5" cy="14" r="1.4" fill="var(--card)"/></g></symbol>
+  <symbol id="g-paw" viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 12.5c-3 0-5.5 2.7-5.5 5 0 1.6 1.4 2.5 3 2.2l2.5-.5 2.5.5c1.6.3 3-.6 3-2.2 0-2.3-2.5-5-5.5-5z"/><circle cx="5.5" cy="10" r="2"/><circle cx="9.3" cy="6" r="2"/><circle cx="14.7" cy="6" r="2"/><circle cx="18.5" cy="10" r="2"/></g></symbol>
+  <symbol id="g-leaf" viewBox="0 0 24 24"><g fill="currentColor"><path d="M20.5 3.5C11 3.5 4.5 8 4.5 15c0 1.6.5 3 1.5 4 .6-5 4-9.5 9-11.5-3.5 3-5.5 6.5-6.2 11.4C17 19 20.5 12 20.5 3.5z"/></g></symbol>
+  <symbol id="g-tree" viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 2.5l6 8h-3l4 6H5l4-6H6z"/><rect x="11" y="16" width="2" height="5.5"/></g></symbol>
+  <symbol id="g-sun" viewBox="0 0 24 24"><g fill="currentColor"><circle cx="12" cy="12" r="4.2"/></g><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1"/></g></symbol>
+  <symbol id="g-moon" viewBox="0 0 24 24"><g fill="currentColor"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></g></symbol>
+  <symbol id="g-bolt" viewBox="0 0 24 24"><g fill="currentColor"><path d="M13.5 2L4.5 13.5h6L9.5 22l9-11.5h-6z"/></g></symbol>
+  <symbol id="g-bell" viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 3a6 6 0 0 0-6 6v4l-2 3.5h16L18 13V9a6 6 0 0 0-6-6zM10 19.5a2 2 0 0 0 4 0z"/></g></symbol>
+  <symbol id="g-flag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V3.5"/></g><g fill="currentColor"><path d="M5.5 4.5h12l-2.5 4 2.5 4h-12z"/></g></symbol>
+  <symbol id="g-sparkle" viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.2L12 19.5l-2.2-6.3L3.5 11l6.3-2.2z"/></g></symbol>
   <symbol id="g-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M12 7v5l3.2 2" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="g-timer" viewBox="0 0 24 24"><path d="M9 2.5h6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><circle cx="12" cy="13.5" r="8" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M12 9.5v4.3l2.6 1.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="g-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -323,12 +386,12 @@ var DEF_IDS=["estudio","casa","cuerpo","ocio","trabajo"];
 var I18N={
 es:{
   title:"Nubi y Flanci",sections:"Secciones",hi:"¡Hola, hola! ¿Qué hacemos hoy?",greet:"Saludar a {n}",choose:"Elegir a {n}",
-  settings:"Ajustes",expTitle:"Descargar respaldo",file:"Archivo",size:"Tamaño",expCount:"{t} tareas · {r} repetidas · {h} hábitos",expNote:"Si aceptas, se guardará en la carpeta de descargas de tu navegador.",download:"Descargar",copyBackup:"Copiar respaldo",copied:"¡Copiado!",impConfirm:"Importar reemplazará todos tus datos actuales. ¿Continuar?",repeat:"Repetir",rp_none:"No se repite",rp_daily:"Todos los días",rp_weekdays:"Lunes a viernes",rp_custom:"Elegir días",edit:"Editar {n}",save:"Guardar",cancel:"Cancelar",date:"Fecha",delRep:"Esta tarea se repite.\nAceptar: borrar todas las repeticiones.\nCancelar: quitar solo este día.",backup:"Respaldo",backupDesc:"Guarda o recupera tus datos en un archivo.",export:"Exportar",import:"Importar",importOk:"Datos importados.",importBad:"Archivo no válido.",alerts:"Avisos",alertsDesc:"Notificación a la hora de cada tarea y al acabar el foco.",enable:"Activar",enabled:"Activados",blocked:"Bloqueados",week7:"Últimos 7 días",tasksDone:"Tareas hechas",focusSess:"Sesiones de foco",bestStreak:"Mejor racha",notifTask:"Es hora de: {n}",notifFocus:"¡Terminó el temporizador!",appearance:"Apariencia",light:"Claro",dark:"Oscuro",auto:"Sistema",language:"Idioma",
+  settings:"Ajustes",expTitle:"Descargar respaldo",file:"Archivo",size:"Tamaño",expCount:"{t} tareas · {r} repetidas · {h} hábitos",expNote:"Si aceptas, se guardará en la carpeta de descargas de tu navegador.",download:"Descargar",copyBackup:"Copiar respaldo",copied:"¡Copiado!",impConfirm:"Importar reemplazará todos tus datos actuales. ¿Continuar?",repeat:"Repetir",rp_none:"No se repite",rp_daily:"Todos los días",rp_weekdays:"Lunes a viernes",rp_custom:"Elegir días",edit:"Editar {n}",save:"Guardar",cancel:"Cancelar",date:"Fecha",cfTask:"¿Borrar esta tarea?",cfRep:"Esta tarea se repite. ¿Qué quieres borrar?",cfHab:"¿Borrar este hábito? Se pierde su historial.",cfCat:"¿Borrar esta categoría? Sus tareas quedarán sin categoría.",cfYes:"Sí, borrar",cfNo:"Cancelar",cfAll:"Todas",cfDay:"Solo hoy",delRep:"Esta tarea se repite.\nAceptar: borrar todas las repeticiones.\nCancelar: quitar solo este día.",backup:"Respaldo",backupDesc:"Guarda o recupera tus datos en un archivo.",export:"Exportar",import:"Importar",importOk:"Datos importados.",importBad:"Archivo no válido.",alerts:"Avisos",alertsDesc:"Notificación a la hora de cada tarea y al acabar el foco.",enable:"Activar",enabled:"Activados",blocked:"Bloqueados",week7:"Últimos 7 días",tasksDone:"Tareas hechas",focusSess:"Sesiones de foco",bestStreak:"Mejor racha",notifTask:"Es hora de: {n}",notifFocus:"¡Terminó el temporizador!",appearance:"Apariencia",light:"Claro",dark:"Oscuro",auto:"Sistema",language:"Idioma",
   examples:"Ejemplos",examplesDesc:"Quita las tareas y hábitos de muestra.",remove:"Quitar",
   tab_tareas:"Tareas",tab_agenda:"Agenda",tab_habitos:"Hábitos",tab_foco:"Foco",
   prevWeek:"Semana anterior",nextWeek:"Semana siguiente",today:"Hoy",doneOf:"{d} de {n} listas · {p}%",
-  catLabel:"Categoría: {n}",categories:"Categorías",editCats:"Editar categorías",changeColor:"Cambiar color de {n}",catName:"Nombre de la categoría",
-  del:"Borrar {n}",newCat:"Nueva categoría",add2:"Sumar",done:"Listo",newTask:"Nueva tarea",taskPh:"¿Qué quieres hacer?",add:"Añadir",time:"Hora",
+  catLabel:"Categoría: {n}",categories:"Categorías",editCats:"Editar categorías",changeColor:"Elegir icono y color de {n}",catName:"Nombre de la categoría",
+  del:"Borrar {n}",newCat:"Nueva categoría",add2:"Añadir",done:"Listo",newTask:"Nueva tarea",taskPh:"¿Qué quieres hacer?",add:"Añadir",time:"Hora",
   mark:"Marcar {n}",example:"ejemplo",noTasks:"Aún no hay tareas.<br>Escribe la primera arriba.",
   addAt:"Añadir tarea a las {t}",addHere:"+ añadir aquí",noTime:"Sin hora",
   noTask:"Sin tarea elegida",mode:"Modo",mode_foco:"Foco",mode_corta:"Pausa",mode_larga:"Descanso largo",
@@ -346,11 +409,11 @@ es:{
 },
 en:{
   title:"Nubi & Flanci",sections:"Sections",hi:"Hi, hi! What shall we do today?",greet:"Say hi to {n}",choose:"Choose {n}",
-  settings:"Settings",expTitle:"Download backup",file:"File",size:"Size",expCount:"{t} tasks · {r} repeating · {h} habits",expNote:"If you accept, it will be saved to your browser's downloads folder.",download:"Download",copyBackup:"Copy backup",copied:"Copied!",impConfirm:"Importing will replace all your current data. Continue?",repeat:"Repeat",rp_none:"Does not repeat",rp_daily:"Every day",rp_weekdays:"Monday to Friday",rp_custom:"Choose days",edit:"Edit {n}",save:"Save",cancel:"Cancel",date:"Date",delRep:"This task repeats.\nOK: delete all repeats.\nCancel: remove only this day.",backup:"Backup",backupDesc:"Save or restore your data as a file.",export:"Export",import:"Import",importOk:"Data imported.",importBad:"Invalid file.",alerts:"Alerts",alertsDesc:"Notify at each task's time and when focus ends.",enable:"Enable",enabled:"Enabled",blocked:"Blocked",week7:"Last 7 days",tasksDone:"Tasks done",focusSess:"Focus sessions",bestStreak:"Best streak",notifTask:"Time for: {n}",notifFocus:"Timer finished!",appearance:"Appearance",light:"Light",dark:"Dark",auto:"System",language:"Language",
+  settings:"Settings",expTitle:"Download backup",file:"File",size:"Size",expCount:"{t} tasks · {r} repeating · {h} habits",expNote:"If you accept, it will be saved to your browser's downloads folder.",download:"Download",copyBackup:"Copy backup",copied:"Copied!",impConfirm:"Importing will replace all your current data. Continue?",repeat:"Repeat",rp_none:"Does not repeat",rp_daily:"Every day",rp_weekdays:"Monday to Friday",rp_custom:"Choose days",edit:"Edit {n}",save:"Save",cancel:"Cancel",date:"Date",cfTask:"Delete this task?",cfRep:"This task repeats. What do you want to delete?",cfHab:"Delete this habit? Its history will be lost.",cfCat:"Delete this category? Its tasks will have no category.",cfYes:"Yes, delete",cfNo:"Cancel",cfAll:"All repeats",cfDay:"Only today",delRep:"This task repeats.\nOK: delete all repeats.\nCancel: remove only this day.",backup:"Backup",backupDesc:"Save or restore your data as a file.",export:"Export",import:"Import",importOk:"Data imported.",importBad:"Invalid file.",alerts:"Alerts",alertsDesc:"Notify at each task's time and when focus ends.",enable:"Enable",enabled:"Enabled",blocked:"Blocked",week7:"Last 7 days",tasksDone:"Tasks done",focusSess:"Focus sessions",bestStreak:"Best streak",notifTask:"Time for: {n}",notifFocus:"Timer finished!",appearance:"Appearance",light:"Light",dark:"Dark",auto:"System",language:"Language",
   examples:"Examples",examplesDesc:"Remove the sample tasks and habits.",remove:"Remove",
   tab_tareas:"Tasks",tab_agenda:"Agenda",tab_habitos:"Habits",tab_foco:"Focus",
   prevWeek:"Previous week",nextWeek:"Next week",today:"Today",doneOf:"{d} of {n} done · {p}%",
-  catLabel:"Category: {n}",categories:"Categories",editCats:"Edit categories",changeColor:"Change color of {n}",catName:"Category name",
+  catLabel:"Category: {n}",categories:"Categories",editCats:"Edit categories",changeColor:"Choose icon and color for {n}",catName:"Category name",
   del:"Delete {n}",newCat:"New category",add2:"Add",done:"Done",newTask:"New task",taskPh:"What do you want to do?",add:"Add",time:"Time",
   mark:"Mark {n}",example:"example",noTasks:"No tasks yet.<br>Write the first one above.",
   addAt:"Add a task at {t}",addHere:"+ add here",noTime:"No time",
@@ -396,7 +459,7 @@ function dkey(off){var d=new Date();d.setDate(d.getDate()+off);return d.getFullY
 function dateOf(off){var d=new Date();d.setDate(d.getDate()+off);return d}
 function fmtTime(t){if(!t)return"";var p=t.split(":"),h=+p[0];return(h%12||12)+":"+p[1]+(h<12?_t("am"):_t("pm"))}
 var NOCAT={id:"",name:"Sin categoría",c:"#d5dbe6",d:"#7b869c",g:"g-star",none:true};
-var GLYPHS=["g-star","g-heart","g-flower","g-cloud","g-gem"];
+var GLYPHS=["g-star","g-heart","g-flower","g-cloud","g-gem","g-book","g-cap","g-pencil","g-laptop","g-briefcase","g-chat","g-phone","g-wallet","g-home","g-cart","g-utensils","g-coffee","g-gift","g-dumbbell","g-bike","g-pulse","g-pill","g-drop","g-smile","g-music","g-gamepad","g-camera","g-palette","g-plane","g-car","g-paw","g-leaf","g-tree","g-sun","g-moon","g-bolt","g-bell","g-flag","g-sparkle"];
 var PALETTE=[["#a9d4fb","#4f95d6"],["#b8ecd0","#3fae80"],["#ffc4d6","#e0628a"],["#d9c8ff","#8d6ad6"],["#ffe28a","#cf9a12"],["#ffd0a8","#d9772b"],["#b7efef","#2fa5a5"],["#d5dbe6","#7b869c"]];
 function cat(id){return S.cats.filter(function(c){return c.id===id})[0]||NOCAT}
 
@@ -421,7 +484,7 @@ function load(){try{var r=JSON.parse(localStorage.getItem(KEY));if(r&&r.tasks){i
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
 
 var S=load();
-var V={rp:"none",rdays:[],edit:null,notified:{},tab:"tareas",off:0,cat:"estudio",msg:0,settings:false,dd:false,editcats:false};
+var V={cf:"",pick:"",rp:"none",rdays:[],edit:null,notified:{},tab:"tareas",off:0,cat:"estudio",msg:0,settings:false,dd:false,editcats:false};
 var T={mode:"foco",len:25*60,left:25*60,running:false,end:0,task:""};
 var MODES={foco:{n:"Foco",m:25},corta:{n:"Pausa",m:5},larga:{n:"Descanso largo",m:15}};
 var CIRC=2*Math.PI*84;
@@ -512,9 +575,9 @@ function addCard(){
   var edit="";
   if(V.editcats){
     edit='<div class="catedit"><div class="small">'+_t("categories")+'</div>'+S.cats.map(function(c){
-      return '<div class="crow"><button type="button" class="dot sw" '+catVars(c)+' data-act="ccolor" data-id="'+c.id+'" aria-label="'+esc(_t("changeColor",{n:c.name}))+'">'+glyph(c.g)+'</button>'+
+      return '<div class="crow"><button type="button" class="dot sw" '+catVars(c)+' data-act="cpick" data-id="'+c.id+'" aria-expanded="'+(V.pick===c.id)+'" aria-label="'+esc(_t("changeColor",{n:c.name}))+'">'+glyph(c.g)+'</button>'+
         '<input class="field cin" data-cid="'+c.id+'" value="'+esc(c.name)+'" maxlength="20" aria-label="'+_t("catName")+'">'+
-        (S.cats.length>1?'<button type="button" class="x" data-act="cdel" data-id="'+c.id+'" aria-label="'+esc(_t("del",{n:c.name}))+'">'+glyph("g-x")+'</button>':'')+'</div>'}).join("")+
+        (S.cats.length>1?'<button type="button" class="x" data-act="ask" data-k="c" data-id="'+c.id+'" aria-label="'+esc(_t("del",{n:c.name}))+'">'+glyph("g-x")+'</button>':'')+'</div>'+cfmHTML("c",c.id,_t("cfCat"),yesBtn("cdel",c.id))+pickHTML(c)}).join("")+
       '<div class="crow"><input class="field" id="cn" maxlength="20" placeholder="'+_t("newCat")+'" aria-label="'+_t("newCat")+'"><button type="button" class="btn" data-act="cadd">'+_t("add2")+'</button></div>'+
       '<button type="button" class="btn ghost" data-act="editcats" style="align-self:flex-end">'+_t("done")+'</button></div>';
   }
@@ -522,6 +585,11 @@ function addCard(){
     '<input class="field" id="tx" maxlength="80" placeholder="'+_t("taskPh")+'" required><button class="btn" type="submit">'+_t("add")+'</button></div>'+
     '<div class="row" style="align-items:center"><label class="sr" for="tm">'+_t("time")+'</label><input class="field" id="tm" type="time">'+dd+'</div>'+repHTML()+edit+'</form>';
 }
+function cfmHTML(k,id,msg,btns){if(V.cf!==k+":"+id)return"";
+  return '<div class="cfm" role="alertdialog" aria-label="'+esc(msg)+'"><span class="cfq">'+esc(msg)+'</span><div class="cfb"><button type="button" class="btn ghost" data-act="askno">'+_t("cfNo")+'</button>'+btns+'</div></div>'}
+function yesBtn(act,id,label){return '<button type="button" class="btn danger" data-act="'+act+'" data-id="'+id+'">'+(label||_t("cfYes"))+'</button>'}
+function pickHTML(c){if(V.pick!==c.id)return"";
+  return '<div class="pick" '+catVars(c)+'><div class="pcs">'+PALETTE.map(function(p,i){return '<button type="button" class="pc" style="--c:'+p[0]+'" data-act="cpcol" data-id="'+c.id+'" data-i="'+i+'" aria-pressed="'+(p[0]===c.c)+'" aria-label="'+(i+1)+'"></button>'}).join("")+'</div><div class="pgs">'+GLYPHS.map(function(g){return '<button type="button" class="pi" data-act="cpg" data-id="'+c.id+'" data-g="'+g+'" aria-pressed="'+(g===c.g)+'" aria-label="'+g.slice(2)+'">'+glyph(g)+'</button>'}).join("")+'</div></div>'}
 function repHTML(){
   var o=[["none","rp_none"],["daily","rp_daily"],["weekdays","rp_weekdays"],["custom","rp_custom"]].map(function(x){return '<option value="'+x[0]+'"'+(V.rp===x[0]?' selected':'')+'>'+_t(x[1])+'</option>'}).join("");
   var ch="";if(V.rp==="custom")ch='<div class="cats" role="group" aria-label="'+_t("repeat")+'">'+[1,2,3,4,5,6,0].map(function(g,i){return '<button type="button" class="chip" style="--c:var(--accent);--d:var(--accent)" data-act="rday" data-id="'+g+'" aria-pressed="'+(V.rdays.indexOf(g)>=0)+'">'+CAL().hl[i]+'</button>'}).join("")+'</div>';
@@ -534,10 +602,14 @@ function taskRow(t){
     var dt=t.rep?"":'<input class="field" id="ed" type="date" value="'+dkey(V.off)+'" aria-label="'+_t("date")+'">';
     return '<li class="task"><form id="editform" data-id="'+t.id+'" style="grid-column:1/-1;display:flex;flex-direction:column;gap:8px"><input class="field" id="et" maxlength="80" value="'+esc(txt(t))+'" required aria-label="'+_t("newTask")+'"><div class="row" style="flex-wrap:wrap"><input class="field" id="etm" type="time" value="'+(t.time||"")+'" aria-label="'+_t("time")+'"><select class="field" id="ec" aria-label="'+_t("categories")+'">'+co+'</select>'+dt+'</div><div class="row" style="justify-content:flex-end"><button type="button" class="btn ghost" data-act="ecancel">'+_t("cancel")+'</button><button class="btn" type="submit">'+_t("save")+'</button></div></form></li>';
   }
+  if(V.cf==="t:"+t.id){
+    var msg=t.rep?_t("cfRep"):_t("cfTask"),bt=t.rep?yesBtn("delday",t.id,_t("cfDay"))+yesBtn("del",t.id,_t("cfAll")):yesBtn("del",t.id);
+    return '<li class="task" style="display:block"><div class="small" style="margin-bottom:6px">'+esc(txt(t))+'</div>'+cfmHTML("t",t.id,msg,bt)+'</li>';
+  }
   return '<li class="task'+(t.done?" done":"")+'"><button class="check" role="checkbox" aria-checked="'+t.done+'" aria-label="'+esc(_t("mark",{n:txt(t)}))+'" data-act="toggle" data-id="'+t.id+'">'+glyph("g-check")+'</button>'+
     '<div class="tx"><b>'+esc(txt(t))+'</b><div class="meta">'+(t.time?'<span class="pill">'+fmtTime(t.time)+'</span>':'')+(t.rep?'<span class="pill">↻</span>':'')+
     (c.none?'':'<span class="pill cat" '+catVars(c)+'>'+glyph(c.g)+esc(c.name)+'</span>')+(t.ex?'<span class="pill">'+_t("example")+'</span>':'')+'</div></div>'+
-    '<div style="display:flex"><button class="x" data-act="edit" data-id="'+t.id+'" aria-label="'+esc(_t("edit",{n:txt(t)}))+'">✎</button><button class="x" data-act="del" data-id="'+t.id+'" aria-label="'+esc(_t("del",{n:txt(t)}))+'">'+glyph("g-x")+'</button></div></li>';
+    '<div style="display:flex"><button class="x" data-act="edit" data-id="'+t.id+'" aria-label="'+esc(_t("edit",{n:txt(t)}))+'">✎</button><button class="x" data-act="ask" data-k="t" data-id="'+t.id+'" aria-label="'+esc(_t("del",{n:txt(t)}))+'">'+glyph("g-x")+'</button></div></li>';
 }
 function statsHTML(){
   var d=0,n=0,f=0,bars="",best=0;
@@ -598,7 +670,7 @@ function habitsHTML(){
       var k=dkey(ws+i),on=!!h.done[k],d=dateOf(ws+i);
       cells+='<button class="hd'+(on?" on":"")+(ws+i===0?" t":"")+'" data-act="hab" data-id="'+h.id+'" data-k="'+k+'" aria-pressed="'+on+'" aria-label="'+esc(hname(h))+', '+CAL().dial[d.getDay()]+' '+d.getDate()+'"><span>'+L[i]+'</span>'+glyph("g-star")+'</button>';
     }
-    return '<div class="habit"><div class="hhead"><div class="hl"><b>'+esc(hname(h))+'</b>'+(h.ex?'<span class="pill">'+_t("example")+'</span>':'')+'</div><div class="hr">'+(st?'<span class="streak">'+_t(st===1?"streak1":"streakN",{n:st})+'</span>':'')+'<button class="x" data-act="hdel" data-id="'+h.id+'" aria-label="'+esc(_t("del",{n:hname(h)}))+'">'+glyph("g-x")+'</button></div></div><div class="hdays">'+cells+'</div></div>';
+    return '<div class="habit"><div class="hhead"><div class="hl"><b>'+esc(hname(h))+'</b>'+(h.ex?'<span class="pill">'+_t("example")+'</span>':'')+'</div><div class="hr">'+(st?'<span class="streak">'+_t(st===1?"streak1":"streakN",{n:st})+'</span>':'')+'<button class="x" data-act="ask" data-k="h" data-id="'+h.id+'" aria-label="'+esc(_t("del",{n:hname(h)}))+'">'+glyph("g-x")+'</button></div></div>'+cfmHTML("h",h.id,_t("cfHab"),yesBtn("hdel",h.id))+'<div class="hdays">'+cells+'</div></div>';
   }).join("");
   if(!rows)rows='<div class="empty">'+mascot(skin().m)+_t("noHabits")+'</div>';
   return weekCard(false)+'<section class="card"><h2 class="weekhead" style="font-size:18px;justify-content:flex-start;gap:8px;flex-wrap:nowrap">'+_t("habitsWeek")+'</h2><div class="small hsub">'+_t("habitsTip")+'</div>'+rows+
@@ -697,7 +769,7 @@ document.addEventListener("click",function(e){
   if(!el||el.tagName==="SELECT")return;
   var a=el.getAttribute("data-act"),id=el.getAttribute("data-id");
   if(a==="skin"){S.skin=id;V.msg=0;save();render();bounce()}
-  else if(a==="tab"){V.tab=id;render()}
+  else if(a==="tab"){V.cf="";V.tab=id;render()}
   else if(a==="wk"){V.off+=+el.getAttribute("data-d");V.msg=0;render()}
   else if(a==="today"){V.off=0;V.msg=0;render()}
   else if(a==="pick"){V.off=+el.getAttribute("data-off");V.msg=0;render()}
@@ -716,15 +788,20 @@ document.addEventListener("click",function(e){
   else if(a==="notif"){if("Notification" in window&&Notification.permission==="default")Notification.requestPermission().then(function(){render()})}
   else if(a==="clearex"){Object.keys(S.tasks).forEach(function(k){S.tasks[k]=S.tasks[k].filter(function(t){return!t.ex})});S.habits=S.habits.filter(function(h){return!h.ex});save();render()}
   else if(a==="hab"){var h=S.habits.filter(function(x){return x.id===id})[0],k2=el.getAttribute("data-k");if(h){if(h.done[k2])delete h.done[k2];else h.done[k2]=1;save();render()}}
-  else if(a==="hdel"){S.habits=S.habits.filter(function(x){return x.id!==id});save();render()}
+  else if(a==="hdel"){V.cf="";S.habits=S.habits.filter(function(x){return x.id!==id});save();render()}
   else if(a==="dd"){V.dd=!V.dd;render()}
   else if(a==="pickcat"){V.cat=id;V.dd=false;render()}
-  else if(a==="editcats"){V.editcats=!V.editcats;V.dd=false;render()}
-  else if(a==="ccolor"){var c=S.cats.filter(function(x){return x.id===id})[0];if(c){var i=0;PALETTE.forEach(function(p,j){if(p[0]===c.c)i=j});i=(i+1)%PALETTE.length;c.c=PALETTE[i][0];c.d=PALETTE[i][1];c.g=GLYPHS[i%GLYPHS.length];save();render()}}
-  else if(a==="cdel"){S.cats=S.cats.filter(function(x){return x.id!==id});save();render()}
+  else if(a==="editcats"){V.cf="";V.editcats=!V.editcats;V.pick="";V.dd=false;render()}
+  else if(a==="cpick"){V.pick=V.pick===id?"":id;render()}
+  else if(a==="cpcol"){var c=S.cats.filter(function(x){return x.id===id})[0],p=PALETTE[+el.getAttribute("data-i")];if(c&&p){c.c=p[0];c.d=p[1];save();render()}}
+  else if(a==="cpg"){var c=S.cats.filter(function(x){return x.id===id})[0],g=el.getAttribute("data-g");if(c&&GLYPHS.indexOf(g)>=0){c.g=g;save();render()}}
+  else if(a==="cdel"){V.cf="";S.cats=S.cats.filter(function(x){return x.id!==id});save();render()}
   else if(a==="cadd"){var nm=$("#cn").value.trim();if(nm){$("#cn").value="";var n=S.cats.length,pl=PALETTE[n%PALETTE.length];S.cats.push({id:uid(),name:nm,c:pl[0],d:pl[1],g:GLYPHS[n%GLYPHS.length]});save();render();$("#cn").focus()}}
   else if(a==="toggle"){var t=find(id);if(t){if(t.rep){var rr=repOf(id),kk=dkey(V.off);if(rr.done[kk])delete rr.done[kk];else rr.done[kk]=1}else t.done=!t.done;save();V.msg++;render();if(mood()==="done")bounce()}}
-  else if(a==="del"){var k=dkey(V.off),rr2=repOf(id);if(rr2){if(confirm(_t("delRep")))S.rep=S.rep.filter(function(x){return x.id!==id});else rr2.skip[k]=1}else S.tasks[k]=(S.tasks[k]||[]).filter(function(t){return t.id!==id});save();render()}
+  else if(a==="ask"){V.cf=el.getAttribute("data-k")+":"+id;render();var nb=$(".cfm .btn.ghost");if(nb)nb.focus()}
+  else if(a==="askno"){V.cf="";render()}
+  else if(a==="delday"){V.cf="";var rd=repOf(id);if(rd)rd.skip[dkey(V.off)]=1;save();render()}
+  else if(a==="del"){V.cf="";var k=dkey(V.off);if(repOf(id))S.rep=S.rep.filter(function(x){return x.id!==id});else S.tasks[k]=(S.tasks[k]||[]).filter(function(t){return t.id!==id});save();render()}
   else if(a==="hour"){V.tab="tareas";render();$("#tm").value=pad(+el.getAttribute("data-h"))+":00";$("#tx").focus()}
   else if(a==="mascot"){bounce()}
   else if(a==="mode"){setMode(id);render()}
