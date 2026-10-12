@@ -34,3 +34,7 @@ Sube el número de versión de la caché en `sw.js` (`const C="nubitime-vN"`) pa
 ## Datos
 
 Todo se guarda en `localStorage` (clave `nubi-tosti-planner-v1`). La app permite exportar e importar una copia de seguridad desde Ajustes. Limpiar los datos del sitio borra la información.
+
+## Vista previa al compartir el enlace
+
+`index.html` trae el título y la descripción (`og:*`, `twitter:*`) para la vista previa al compartir el enlace. No incluye imagen grande; si más adelante la quieres, se añade `og:image` con la dirección completa del sitio.
