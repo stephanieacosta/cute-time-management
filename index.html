@@ -227,6 +227,28 @@ input[type=time]::-webkit-calendar-picker-indicator{-webkit-appearance:none;appe
 .crow .field{background:var(--card);padding:9px 12px}
 .sw{width:34px;height:34px;border:2px solid var(--d)}
 .sw svg{width:18px;height:18px}
+.field[readonly]{cursor:pointer}
+#tm,#etm{width:132px;flex:0 0 132px;text-align:left}
+#ed{width:auto;flex:1 1 150px}
+.wh{position:relative;isolation:isolate;display:flex;justify-content:center;align-items:center;gap:2px;height:180px}
+.wsel{position:absolute;left:6px;right:6px;top:72px;height:36px;border-radius:12px;background:var(--soft);z-index:-1;pointer-events:none}
+.wc{height:180px;width:88px;overflow-y:auto;scroll-snap-type:y mandatory;padding:72px 0;scrollbar-width:none;text-align:center;-webkit-mask-image:linear-gradient(transparent,#000 30%,#000 70%,transparent);mask-image:linear-gradient(transparent,#000 30%,#000 70%,transparent)}
+.wc::-webkit-scrollbar{display:none}
+.wi{height:36px;line-height:36px;scroll-snap-align:center;font:600 20px var(--f-display);color:var(--ink2);cursor:pointer}
+.wi.on{color:var(--ink);font-size:25px}
+.wsep{font:600 25px var(--f-display);color:var(--ink)}
+.mti{display:block;width:170px;margin:0 auto 4px;text-align:center;font:600 24px var(--f-display);padding:8px 10px}
+.mdl{position:fixed;inset:0;z-index:60;background:rgba(10,20,40,.45);display:grid;place-items:center;padding:16px}
+.mbox{background:var(--card);color:var(--ink);border-radius:24px;padding:16px;width:min(340px,100%);max-height:92vh;overflow:auto;box-shadow:0 12px 40px rgba(0,0,0,.35);outline:0}
+.mt{font:600 14px var(--f-display);color:var(--ink2);margin:6px 2px}
+.mg{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.mg.d7{grid-template-columns:repeat(7,1fr)}
+.mb{height:38px;border-radius:12px;background:var(--soft);color:var(--ink);font:600 14px var(--f-display)}
+.mb.on{background:var(--accent);color:var(--accent-ink)}
+.mb.td{box-shadow:inset 0 0 0 2px var(--accent)}
+.mb.wd{background:none;height:24px;color:var(--ink2);font-size:12px}
+.mh{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;font:600 17px var(--f-display);text-transform:capitalize}
+.ma{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
 .cfm{display:flex;flex-wrap:wrap;align-items:center;gap:8px;background:var(--card);border:2px solid #e5566d;border-radius:16px;padding:8px 8px 8px 12px}
 .cfq{flex:1 1 150px;min-width:0;font-weight:600;font-size:14px}
 .cfb{display:flex;flex-wrap:wrap;gap:8px}
@@ -386,7 +408,7 @@ var DEF_IDS=["estudio","casa","cuerpo","ocio","trabajo"];
 var I18N={
 es:{
   title:"Nubi y Flanci",sections:"Secciones",hi:"¡Hola, hola! ¿Qué hacemos hoy?",greet:"Saludar a {n}",choose:"Elegir a {n}",
-  settings:"Ajustes",expTitle:"Descargar respaldo",file:"Archivo",size:"Tamaño",expCount:"{t} tareas · {r} repetidas · {h} hábitos",expNote:"Si aceptas, se guardará en la carpeta de descargas de tu navegador.",download:"Descargar",copyBackup:"Copiar respaldo",copied:"¡Copiado!",impConfirm:"Importar reemplazará todos tus datos actuales. ¿Continuar?",repeat:"Repetir",rp_none:"No se repite",rp_daily:"Todos los días",rp_weekdays:"Lunes a viernes",rp_custom:"Elegir días",edit:"Editar {n}",save:"Guardar",cancel:"Cancelar",date:"Fecha",cfTask:"¿Borrar esta tarea?",cfRep:"Esta tarea se repite. ¿Qué quieres borrar?",cfHab:"¿Borrar este hábito? Se pierde su historial.",cfCat:"¿Borrar esta categoría? Sus tareas quedarán sin categoría.",cfYes:"Sí, borrar",cfNo:"Cancelar",cfAll:"Todas",cfDay:"Solo hoy",delRep:"Esta tarea se repite.\nAceptar: borrar todas las repeticiones.\nCancelar: quitar solo este día.",backup:"Respaldo",backupDesc:"Guarda o recupera tus datos en un archivo.",export:"Exportar",import:"Importar",importOk:"Datos importados.",importBad:"Archivo no válido.",alerts:"Avisos",alertsDesc:"Notificación a la hora de cada tarea y al acabar el foco.",enable:"Activar",enabled:"Activados",blocked:"Bloqueados",week7:"Últimos 7 días",tasksDone:"Tareas hechas",focusSess:"Sesiones de foco",bestStreak:"Mejor racha",notifTask:"Es hora de: {n}",notifFocus:"¡Terminó el temporizador!",appearance:"Apariencia",light:"Claro",dark:"Oscuro",auto:"Sistema",language:"Idioma",
+  settings:"Ajustes",expTitle:"Descargar respaldo",file:"Archivo",size:"Tamaño",expCount:"{t} tareas · {r} repetidas · {h} hábitos",expNote:"Si aceptas, se guardará en la carpeta de descargas de tu navegador.",download:"Descargar",copyBackup:"Copiar respaldo",copied:"¡Copiado!",impConfirm:"Importar reemplazará todos tus datos actuales. ¿Continuar?",repeat:"Repetir",rp_none:"No se repite",rp_daily:"Todos los días",rp_weekdays:"Lunes a viernes",rp_custom:"Elegir días",edit:"Editar {n}",save:"Guardar",cancel:"Cancelar",date:"Fecha",cfTask:"¿Borrar esta tarea?",cfRep:"Esta tarea se repite. ¿Qué quieres borrar?",cfHab:"¿Borrar este hábito? Se pierde su historial.",cfCat:"¿Borrar esta categoría? Sus tareas quedarán sin categoría.",hours:"Horas",mins:"Minutos",clear:"Quitar",cfYes:"Sí, borrar",cfNo:"Cancelar",cfAll:"Todas",cfDay:"Solo hoy",delRep:"Esta tarea se repite.\nAceptar: borrar todas las repeticiones.\nCancelar: quitar solo este día.",backup:"Respaldo",backupDesc:"Guarda o recupera tus datos en un archivo.",export:"Exportar",import:"Importar",importOk:"Datos importados.",importBad:"Archivo no válido.",alerts:"Avisos",alertsDesc:"Notificación 10 min antes y a la hora de cada tarea, y al acabar el foco.",enable:"Activar",enabled:"Activados",blocked:"Bloqueados",week7:"Últimos 7 días",tasksDone:"Tareas hechas",focusSess:"Sesiones de foco",bestStreak:"Mejor racha",notifSoon:"En {m} min: {n}",notifTask:"Es hora de: {n}",notifFocus:"¡Terminó el temporizador!",appearance:"Apariencia",light:"Claro",dark:"Oscuro",auto:"Sistema",language:"Idioma",
   examples:"Ejemplos",examplesDesc:"Quita las tareas y hábitos de muestra.",remove:"Quitar",
   tab_tareas:"Tareas",tab_agenda:"Agenda",tab_habitos:"Hábitos",tab_foco:"Foco",
   prevWeek:"Semana anterior",nextWeek:"Semana siguiente",today:"Hoy",doneOf:"{d} de {n} listas · {p}%",
@@ -409,7 +431,7 @@ es:{
 },
 en:{
   title:"Nubi & Flanci",sections:"Sections",hi:"Hi, hi! What shall we do today?",greet:"Say hi to {n}",choose:"Choose {n}",
-  settings:"Settings",expTitle:"Download backup",file:"File",size:"Size",expCount:"{t} tasks · {r} repeating · {h} habits",expNote:"If you accept, it will be saved to your browser's downloads folder.",download:"Download",copyBackup:"Copy backup",copied:"Copied!",impConfirm:"Importing will replace all your current data. Continue?",repeat:"Repeat",rp_none:"Does not repeat",rp_daily:"Every day",rp_weekdays:"Monday to Friday",rp_custom:"Choose days",edit:"Edit {n}",save:"Save",cancel:"Cancel",date:"Date",cfTask:"Delete this task?",cfRep:"This task repeats. What do you want to delete?",cfHab:"Delete this habit? Its history will be lost.",cfCat:"Delete this category? Its tasks will have no category.",cfYes:"Yes, delete",cfNo:"Cancel",cfAll:"All repeats",cfDay:"Only today",delRep:"This task repeats.\nOK: delete all repeats.\nCancel: remove only this day.",backup:"Backup",backupDesc:"Save or restore your data as a file.",export:"Export",import:"Import",importOk:"Data imported.",importBad:"Invalid file.",alerts:"Alerts",alertsDesc:"Notify at each task's time and when focus ends.",enable:"Enable",enabled:"Enabled",blocked:"Blocked",week7:"Last 7 days",tasksDone:"Tasks done",focusSess:"Focus sessions",bestStreak:"Best streak",notifTask:"Time for: {n}",notifFocus:"Timer finished!",appearance:"Appearance",light:"Light",dark:"Dark",auto:"System",language:"Language",
+  settings:"Settings",expTitle:"Download backup",file:"File",size:"Size",expCount:"{t} tasks · {r} repeating · {h} habits",expNote:"If you accept, it will be saved to your browser's downloads folder.",download:"Download",copyBackup:"Copy backup",copied:"Copied!",impConfirm:"Importing will replace all your current data. Continue?",repeat:"Repeat",rp_none:"Does not repeat",rp_daily:"Every day",rp_weekdays:"Monday to Friday",rp_custom:"Choose days",edit:"Edit {n}",save:"Save",cancel:"Cancel",date:"Date",cfTask:"Delete this task?",cfRep:"This task repeats. What do you want to delete?",cfHab:"Delete this habit? Its history will be lost.",cfCat:"Delete this category? Its tasks will have no category.",hours:"Hours",mins:"Minutes",clear:"Clear",cfYes:"Yes, delete",cfNo:"Cancel",cfAll:"All repeats",cfDay:"Only today",delRep:"This task repeats.\nOK: delete all repeats.\nCancel: remove only this day.",backup:"Backup",backupDesc:"Save or restore your data as a file.",export:"Export",import:"Import",importOk:"Data imported.",importBad:"Invalid file.",alerts:"Alerts",alertsDesc:"Notification 10 min before and at each task's time, and when focus ends.",enable:"Enable",enabled:"Enabled",blocked:"Blocked",week7:"Last 7 days",tasksDone:"Tasks done",focusSess:"Focus sessions",bestStreak:"Best streak",notifSoon:"In {m} min: {n}",notifTask:"Time for: {n}",notifFocus:"Timer finished!",appearance:"Appearance",light:"Light",dark:"Dark",auto:"System",language:"Language",
   examples:"Examples",examplesDesc:"Remove the sample tasks and habits.",remove:"Remove",
   tab_tareas:"Tasks",tab_agenda:"Agenda",tab_habitos:"Habits",tab_foco:"Focus",
   prevWeek:"Previous week",nextWeek:"Next week",today:"Today",doneOf:"{d} of {n} done · {p}%",
@@ -583,7 +605,81 @@ function addCard(){
   }
   return '<form class="card add" id="addform" autocomplete="off"><div class="row"><label class="sr" for="tx">'+_t("newTask")+'</label>'+
     '<input class="field" id="tx" maxlength="80" placeholder="'+_t("taskPh")+'" required><button class="btn" type="submit">'+_t("add")+'</button></div>'+
-    '<div class="row" style="align-items:center"><label class="sr" for="tm">'+_t("time")+'</label><input class="field" id="tm" type="time">'+dd+'</div>'+repHTML()+edit+'</form>';
+    '<div class="row" style="align-items:center"><label class="sr" for="tm">'+_t("time")+'</label><input class="field" id="tm" data-v="" readonly data-act="pickTime" placeholder="'+_t("time")+'" aria-label="'+_t("time")+'">'+dd+'</div>'+repHTML()+edit+'</form>';
+}
+function tget(el){return el?(el.getAttribute("data-v")||""):""}
+function tset(el,v){if(!el)return;el.setAttribute("data-v",v||"");el.value=v?fmtTime(v):""}
+var MDL=null;
+function pkKey(e){if(e.key==="Escape")closePick()}
+function closePick(){if(MDL){MDL.remove();MDL=null;document.removeEventListener("keydown",pkKey)}}
+function openPick(kind,inp){
+  closePick();
+  var now=new Date(),d0=now,i,h=now.getHours(),m=Math.round(now.getMinutes()/5)*5%60,mv=[];
+  if(kind==="time"){var q=tget(inp).split(":");if(q.length===2){h=+q[0];m=+q[1]}
+    for(i=0;i<60;i+=5)mv.push(i);if(mv.indexOf(m)<0){mv.push(m);mv.sort(function(a,b){return a-b})}}
+  else if(inp.value)d0=new Date(inp.value+"T12:00");
+  var y=d0.getFullYear(),mo=d0.getMonth(),sel=inp.value,todayK=dkey(0);
+  var ov=document.createElement("div");ov.className="mdl";MDL=ov;
+  function mcol(){var o="",j;for(j=0;j<mv.length;j++)o+='<div class="wi'+(m===mv[j]?" on":"")+'" data-m="wi" data-i="'+j+'">'+pad(mv[j])+'</div>';return o}
+  function draw(){
+    var b="",i;
+    if(kind==="time"){
+      b='<input class="field mti" id="mti" maxlength="9" placeholder="9:30 AM" autocomplete="off" value="'+fmt()+'" aria-label="'+_t("time")+'"><div class="wh"><div class="wsel"></div><div class="wc" data-w="h">';
+      for(i=1;i<=12;i++)b+='<div class="wi'+((h%12||12)===i?" on":"")+'" data-m="wi" data-i="'+(i-1)+'">'+i+'</div>';
+      b+='</div><span class="wsep">:</span><div class="wc" data-w="m">'+mcol()+'</div><div class="wc" data-w="p">';
+      ["AM","PM"].forEach(function(p,j){b+='<div class="wi'+((h>=12?1:0)===j?" on":"")+'" data-m="wi" data-i="'+j+'">'+p+'</div>'});
+      b+='</div></div><div class="ma"><button type="button" class="btn ghost" data-m="x">'+_t("cancel")+'</button><button type="button" class="btn" data-m="ok">'+_t("done")+'</button></div>';
+    }else{
+      var first=new Date(y,mo,1),lead=(first.getDay()+6)%7,n=new Date(y,mo+1,0).getDate(),dn=CAL().dial;
+      b='<div class="mh"><button type="button" class="round" data-m="pm" aria-label="‹">‹</button><span>'+new Date(y,mo,1).toLocaleDateString(S.lang==="en"?"en":"es",{month:"long",year:"numeric"})+'</span><button type="button" class="round" data-m="nm" aria-label="›">›</button></div><div class="mg d7">';
+      for(i=0;i<7;i++)b+='<span class="mb wd">'+dn[(i+1)%7].charAt(0)+'</span>';
+      for(i=0;i<lead;i++)b+='<span></span>';
+      for(i=1;i<=n;i++){var k=y+"-"+pad(mo+1)+"-"+pad(i);b+='<button type="button" class="mb'+(k===sel?" on":"")+(k===todayK?" td":"")+'" data-m="day" data-v="'+k+'">'+i+'</button>'}
+      b+='</div><div class="ma"><button type="button" class="btn ghost" data-m="x">'+_t("cancel")+'</button><button type="button" class="btn" data-m="today">'+_t("today")+'</button></div>';
+    }
+    ov.innerHTML='<div class="mbox" role="dialog" aria-modal="true" tabindex="-1" aria-label="'+_t(kind==="time"?"time":"date")+'">'+b+'</div>';
+  }
+  var cleared=false;
+  function fin(v){if(kind==="time")tset(inp,v);else inp.value=v;closePick();inp.focus()}
+  function fmt(){return(h%12||12)+":"+pad(m)+" "+(h>=12?"PM":"AM")}
+  ov.addEventListener("click",function(e){
+    if(e.target===ov){closePick();return}
+    var t=e.target.closest("[data-m]");if(!t)return;
+    var a=t.getAttribute("data-m"),v=t.getAttribute("data-v");
+    if(a==="wi"){t.parentNode.scrollTo({top:+t.getAttribute("data-i")*36,behavior:"smooth"});return}
+    else if(a==="ok"){fin(cleared?"":pad(h)+":"+pad(m));return}
+    else if(a==="x"){closePick();inp.focus();return}
+    else if(a==="pm"){mo--;if(mo<0){mo=11;y--}}
+    else if(a==="nm"){mo++;if(mo>11){mo=0;y++}}
+    else if(a==="day"){fin(v);return}
+    else if(a==="today"){fin(todayK);return}
+    draw();
+  });
+  ov.addEventListener("scroll",function(e){var c=e.target;if(!c.getAttribute||!c.getAttribute("data-w"))return;clearTimeout(c._t);
+    c._t=setTimeout(function(){cleared=false;var i=Math.max(0,Math.round(c.scrollTop/36));
+      var w=c.getAttribute("data-w");
+      if(w==="h"){i=Math.min(i,11);h=(i+1)%12+(h>=12?12:0)}
+      else if(w==="m"){i=Math.min(i,mv.length-1);m=mv[i]}
+      else{i=Math.min(i,1);h=h%12+(i?12:0)}
+      for(var j=0;j<c.children.length;j++)c.children[j].classList.toggle("on",j===i);
+      var ti=ov.querySelector("#mti");if(ti&&document.activeElement!==ti)ti.value=fmt()},70)},true);
+  function posw(sm){var cs=ov.querySelectorAll(".wc"),o=sm?{behavior:"smooth"}:{};
+    cs[0].scrollTo(Object.assign({top:((h%12||12)-1)*36},o));cs[1].scrollTo(Object.assign({top:mv.indexOf(m)*36},o));cs[2].scrollTo(Object.assign({top:(h>=12?1:0)*36},o))}
+  ov.addEventListener("input",function(e){
+    if(e.target.id!=="mti")return;
+    cleared=e.target.value.trim()==="";
+    var r=/^(\d{1,2}):?(\d{2})\s*(?:([ap])\.?\s*m?\.?)?$/i.exec(e.target.value.trim());if(!r)return;
+    var hh=+r[1],mm=+r[2],sf=r[3]&&r[3].toLowerCase();if(mm>59)return;
+    if(sf){if(hh<1||hh>12)return;h=hh%12+(sf==="p"?12:0)}
+    else if(hh>12){if(hh>23)return;h=hh}
+    else h=hh%12+(h>=12?12:0);
+    m=mm;
+    if(mv.indexOf(m)<0){mv.push(m);mv.sort(function(a,b){return a-b});ov.querySelector('.wc[data-w="m"]').innerHTML=mcol()}
+    posw(true)});
+  ov.addEventListener("keydown",function(e){if(e.key==="Enter"&&e.target.id==="mti"){e.preventDefault();fin(cleared?"":pad(h)+":"+pad(m))}});
+  document.addEventListener("keydown",pkKey);
+  document.body.appendChild(ov);draw();ov.firstChild.focus();
+  if(kind==="time")posw(false)
 }
 function cfmHTML(k,id,msg,btns){if(V.cf!==k+":"+id)return"";
   return '<div class="cfm" role="alertdialog" aria-label="'+esc(msg)+'"><span class="cfq">'+esc(msg)+'</span><div class="cfb"><button type="button" class="btn ghost" data-act="askno">'+_t("cfNo")+'</button>'+btns+'</div></div>'}
@@ -599,8 +695,8 @@ function taskRow(t){
   var c=cat(t.cat);
   if(V.edit===t.id){
     var co=S.cats.map(function(x){return '<option value="'+x.id+'"'+(x.id===t.cat?' selected':'')+'>'+esc(x.name)+'</option>'}).join("");
-    var dt=t.rep?"":'<input class="field" id="ed" type="date" value="'+dkey(V.off)+'" aria-label="'+_t("date")+'">';
-    return '<li class="task"><form id="editform" data-id="'+t.id+'" style="grid-column:1/-1;display:flex;flex-direction:column;gap:8px"><input class="field" id="et" maxlength="80" value="'+esc(txt(t))+'" required aria-label="'+_t("newTask")+'"><div class="row" style="flex-wrap:wrap"><input class="field" id="etm" type="time" value="'+(t.time||"")+'" aria-label="'+_t("time")+'"><select class="field" id="ec" aria-label="'+_t("categories")+'">'+co+'</select>'+dt+'</div><div class="row" style="justify-content:flex-end"><button type="button" class="btn ghost" data-act="ecancel">'+_t("cancel")+'</button><button class="btn" type="submit">'+_t("save")+'</button></div></form></li>';
+    var dt=t.rep?"":'<input class="field" id="ed" readonly data-act="pickDate" value="'+dkey(V.off)+'" aria-label="'+_t("date")+'">';
+    return '<li class="task"><form id="editform" data-id="'+t.id+'" style="grid-column:1/-1;display:flex;flex-direction:column;gap:8px"><input class="field" id="et" maxlength="80" value="'+esc(txt(t))+'" required aria-label="'+_t("newTask")+'"><div class="row" style="flex-wrap:wrap"><input class="field" id="etm" readonly data-act="pickTime" placeholder="'+_t("time")+'" data-v="'+(t.time||"")+'" value="'+(t.time?fmtTime(t.time):"")+'" aria-label="'+_t("time")+'"><select class="field" id="ec" aria-label="'+_t("categories")+'">'+co+'</select>'+dt+'</div><div class="row" style="justify-content:flex-end"><button type="button" class="btn ghost" data-act="ecancel">'+_t("cancel")+'</button><button class="btn" type="submit">'+_t("save")+'</button></div></form></li>';
   }
   if(V.cf==="t:"+t.id){
     var msg=t.rep?_t("cfRep"):_t("cfTask"),bt=t.rep?yesBtn("delday",t.id,_t("cfDay"))+yesBtn("del",t.id,_t("cfAll")):yesBtn("del",t.id);
@@ -631,7 +727,10 @@ function exportModal(){
 function notify(title,body){try{if(!("Notification" in window)||Notification.permission!=="granted")return;
   if(navigator.serviceWorker&&navigator.serviceWorker.controller){navigator.serviceWorker.ready.then(function(g){g.showNotification(title,{body:body,icon:"icon-192.png"})})}else new Notification(title,{body:body,icon:"icon-192.png"})}catch(e){}}
 function notifLabel(){return !("Notification" in window)?"—":Notification.permission==="granted"?_t("enabled"):Notification.permission==="denied"?_t("blocked"):_t("enable")}
-setInterval(function(){var d=new Date(),hm=pad(d.getHours())+":"+pad(d.getMinutes()),k=dkey(0);tasks(0).forEach(function(t){if(t.time===hm&&!t.done&&!V.notified[t.id+k]){V.notified[t.id+k]=1;notify(_t("notifTask",{n:txt(t)}),fmtTime(t.time))}})},15000);
+setInterval(function(){var d=new Date(),hm=pad(d.getHours())+":"+pad(d.getMinutes()),k=dkey(0),nm=d.getHours()*60+d.getMinutes();tasks(0).forEach(function(t){
+  if(t.time&&!t.done){var p=t.time.split(":"),left=(+p[0])*60+(+p[1])-nm;if(left>0&&left<=10&&!V.notified[t.id+k+"p"]){V.notified[t.id+k+"p"]=1;notify(_t("notifSoon",{m:left,n:txt(t)}),fmtTime(t.time))}}
+  if(t.time===hm&&!t.done&&!V.notified[t.id+k]){V.notified[t.id+k]=1;notify(_t("notifTask",{n:txt(t)}),fmtTime(t.time))}});
+  if(nm>=1430)tasks(1).forEach(function(t){if(t.time&&!t.done){var p=t.time.split(":"),left=1440+(+p[0])*60+(+p[1])-nm,k1=dkey(1);if(left>0&&left<=10&&!V.notified[t.id+k1+"p"]){V.notified[t.id+k1+"p"]=1;notify(_t("notifSoon",{m:left,n:txt(t)}),fmtTime(t.time))}}})},15000);
 function emptyHTML(){return '<div class="empty">'+mascot(skin().m)+_t("noTasks")+'</div>'}
 function tareasHTML(){
   var l=sorted(tasks(V.off));
@@ -687,13 +786,13 @@ function applySkin(){
   if(!T.running)document.title=_t("title");
 }
 function render(){
-  var tx=$("#tx"),tm=$("#tm"),hn=$("#hn"),cn0=$("#cn"),draft=tx?tx.value:"",time=tm?tm.value:"",hd=hn?hn.value:"",cnv=cn0?cn0.value:"";
+  var tx=$("#tx"),tm=$("#tm"),hn=$("#hn"),cn0=$("#cn"),draft=tx?tx.value:"",time=tm?tget(tm):"",hd=hn?hn.value:"",cnv=cn0?cn0.value:"";
   applySkin();
   $("#hero").innerHTML=heroHTML();
   var st=$("#settings");st.hidden=!V.settings;st.innerHTML=V.settings?settingsHTML():"";
   $("#tabs").innerHTML=tabsHTML();
   $("#view").innerHTML=V.tab==="tareas"?tareasHTML():V.tab==="agenda"?agendaHTML():V.tab==="habitos"?habitsHTML():focoHTML();
-  if(V.tab==="tareas"){$("#tx").value=draft;$("#tm").value=time;if($("#cn"))$("#cn").value=cnv}
+  if(V.tab==="tareas"){$("#tx").value=draft;tset($("#tm"),time);if($("#cn"))$("#cn").value=cnv}
   if(V.tab==="habitos")$("#hn").value=hd;
   if(V.tab==="foco")paintTimer();
 }
@@ -731,14 +830,14 @@ setInterval(function(){
 function addTask(){
   var tx=$("#tx"),tm=$("#tm"),text=tx.value.trim();
   if(!text)return;
-  if(V.rp!=="none"){var dys=V.rp==="daily"?[0,1,2,3,4,5,6]:V.rp==="weekdays"?[1,2,3,4,5]:(V.rdays.length?V.rdays.slice():[dateOf(V.off).getDay()]);S.rep.push({id:uid(),text:text,time:tm.value||"",cat:V.cat,days:dys,from:dkey(V.off),done:{},skip:{}});V.rp="none";V.rdays=[]}else{var k=dkey(V.off);(S.tasks[k]=S.tasks[k]||[]).push({id:uid(),text:text,time:tm.value||"",cat:V.cat,done:false})}
-  save();tx.value="";tm.value="";render();$("#tx").focus();
+  if(V.rp!=="none"){var dys=V.rp==="daily"?[0,1,2,3,4,5,6]:V.rp==="weekdays"?[1,2,3,4,5]:(V.rdays.length?V.rdays.slice():[dateOf(V.off).getDay()]);S.rep.push({id:uid(),text:text,time:tget(tm),cat:V.cat,days:dys,from:dkey(V.off),done:{},skip:{}});V.rp="none";V.rdays=[]}else{var k=dkey(V.off);(S.tasks[k]=S.tasks[k]||[]).push({id:uid(),text:text,time:tget(tm),cat:V.cat,done:false})}
+  save();tx.value="";tset(tm,"");render();$("#tx").focus();
 }
 function find(id){var l=tasks(V.off);for(var i=0;i<l.length;i++)if(l[i].id===id)return l[i]}
 document.addEventListener("submit",function(e){
   if(e.target.id==="addform"){e.preventDefault();addTask()}
   else if(e.target.id==="editform"){e.preventDefault();var eid=e.target.getAttribute("data-id"),et=$("#et").value.trim();
-    if(et){var etm=$("#etm").value,ec=$("#ec").value,r0=repOf(eid);
+    if(et){var etm=tget($("#etm")),ec=$("#ec").value,r0=repOf(eid);
       if(r0){r0.text=et;r0.time=etm;r0.cat=ec}
       else{var k0=dkey(V.off),L0=S.tasks[k0]||[],t0=L0.filter(function(x){return x.id===eid})[0];
         if(t0){t0.text=et;t0.time=etm;t0.cat=ec;delete t0.tk;t0.ex=0;var nd=$("#ed").value;if(nd&&nd!==k0){S.tasks[k0]=L0.filter(function(x){return x!==t0});(S.tasks[nd]=S.tasks[nd]||[]).push(t0)}}}
@@ -792,6 +891,8 @@ document.addEventListener("click",function(e){
   else if(a==="dd"){V.dd=!V.dd;render()}
   else if(a==="pickcat"){V.cat=id;V.dd=false;render()}
   else if(a==="editcats"){V.cf="";V.editcats=!V.editcats;V.pick="";V.dd=false;render()}
+  else if(a==="pickTime"){openPick("time",el)}
+  else if(a==="pickDate"){openPick("date",el)}
   else if(a==="cpick"){V.pick=V.pick===id?"":id;render()}
   else if(a==="cpcol"){var c=S.cats.filter(function(x){return x.id===id})[0],p=PALETTE[+el.getAttribute("data-i")];if(c&&p){c.c=p[0];c.d=p[1];save();render()}}
   else if(a==="cpg"){var c=S.cats.filter(function(x){return x.id===id})[0],g=el.getAttribute("data-g");if(c&&GLYPHS.indexOf(g)>=0){c.g=g;save();render()}}
@@ -802,7 +903,7 @@ document.addEventListener("click",function(e){
   else if(a==="askno"){V.cf="";render()}
   else if(a==="delday"){V.cf="";var rd=repOf(id);if(rd)rd.skip[dkey(V.off)]=1;save();render()}
   else if(a==="del"){V.cf="";var k=dkey(V.off);if(repOf(id))S.rep=S.rep.filter(function(x){return x.id!==id});else S.tasks[k]=(S.tasks[k]||[]).filter(function(t){return t.id!==id});save();render()}
-  else if(a==="hour"){V.tab="tareas";render();$("#tm").value=pad(+el.getAttribute("data-h"))+":00";$("#tx").focus()}
+  else if(a==="hour"){V.tab="tareas";render();tset($("#tm"),pad(+el.getAttribute("data-h"))+":00");$("#tx").focus()}
   else if(a==="mascot"){bounce()}
   else if(a==="mode"){setMode(id);render()}
   else if(a==="tgo"){
