@@ -407,7 +407,7 @@ var DEF_IDS=["estudio","casa","cuerpo","ocio","trabajo"];
 /* ---------- idiomas: español (es) e inglés (en) ---------- */
 var I18N={
 es:{
-  title:"Nubi y Flanci",sections:"Secciones",hi:"¡Hola, hola! ¿Qué hacemos hoy?",greet:"Saludar a {n}",choose:"Elegir a {n}",
+  title:"NubiTime",sections:"Secciones",hi:"¡Hola, hola! ¿Qué hacemos hoy?",greet:"Saludar a {n}",choose:"Elegir a {n}",
   settings:"Ajustes",expTitle:"Descargar respaldo",file:"Archivo",size:"Tamaño",expCount:"{t} tareas · {r} repetidas · {h} hábitos",expNote:"Si aceptas, se guardará en la carpeta de descargas de tu navegador.",download:"Descargar",copyBackup:"Copiar respaldo",copied:"¡Copiado!",impConfirm:"Importar reemplazará todos tus datos actuales. ¿Continuar?",repeat:"Repetir",rp_none:"No se repite",rp_daily:"Todos los días",rp_weekdays:"Lunes a viernes",rp_custom:"Elegir días",edit:"Editar {n}",save:"Guardar",cancel:"Cancelar",date:"Fecha",cfTask:"¿Borrar esta tarea?",cfRep:"Esta tarea se repite. ¿Qué quieres borrar?",cfHab:"¿Borrar este hábito? Se pierde su historial.",cfCat:"¿Borrar esta categoría? Sus tareas quedarán sin categoría.",hours:"Horas",mins:"Minutos",clear:"Quitar",cfYes:"Sí, borrar",cfNo:"Cancelar",cfAll:"Todas",cfDay:"Solo hoy",delRep:"Esta tarea se repite.\nAceptar: borrar todas las repeticiones.\nCancelar: quitar solo este día.",backup:"Respaldo",backupDesc:"Guarda o recupera tus datos en un archivo.",export:"Exportar",import:"Importar",importOk:"Datos importados.",importBad:"Archivo no válido.",alerts:"Avisos",alertsDesc:"Notificación 10 min antes y a la hora de cada tarea, y al acabar el foco.",enable:"Activar",enabled:"Activados",blocked:"Bloqueados",week7:"Últimos 7 días",tasksDone:"Tareas hechas",focusSess:"Sesiones de foco",bestStreak:"Mejor racha",notifSoon:"En {m} min: {n}",notifTask:"Es hora de: {n}",notifFocus:"¡Terminó el temporizador!",appearance:"Apariencia",light:"Claro",dark:"Oscuro",auto:"Sistema",language:"Idioma",
   examples:"Ejemplos",examplesDesc:"Quita las tareas y hábitos de muestra.",remove:"Quitar",
   tab_tareas:"Tareas",tab_agenda:"Agenda",tab_habitos:"Hábitos",tab_foco:"Foco",
@@ -430,7 +430,7 @@ es:{
   hl:["L","M","X","J","V","S","D"]
 },
 en:{
-  title:"Nubi & Flanci",sections:"Sections",hi:"Hi, hi! What shall we do today?",greet:"Say hi to {n}",choose:"Choose {n}",
+  title:"NubiTime",sections:"Sections",hi:"Hi, hi! What shall we do today?",greet:"Say hi to {n}",choose:"Choose {n}",
   settings:"Settings",expTitle:"Download backup",file:"File",size:"Size",expCount:"{t} tasks · {r} repeating · {h} habits",expNote:"If you accept, it will be saved to your browser's downloads folder.",download:"Download",copyBackup:"Copy backup",copied:"Copied!",impConfirm:"Importing will replace all your current data. Continue?",repeat:"Repeat",rp_none:"Does not repeat",rp_daily:"Every day",rp_weekdays:"Monday to Friday",rp_custom:"Choose days",edit:"Edit {n}",save:"Save",cancel:"Cancel",date:"Date",cfTask:"Delete this task?",cfRep:"This task repeats. What do you want to delete?",cfHab:"Delete this habit? Its history will be lost.",cfCat:"Delete this category? Its tasks will have no category.",hours:"Hours",mins:"Minutes",clear:"Clear",cfYes:"Yes, delete",cfNo:"Cancel",cfAll:"All repeats",cfDay:"Only today",delRep:"This task repeats.\nOK: delete all repeats.\nCancel: remove only this day.",backup:"Backup",backupDesc:"Save or restore your data as a file.",export:"Export",import:"Import",importOk:"Data imported.",importBad:"Invalid file.",alerts:"Alerts",alertsDesc:"Notification 10 min before and at each task's time, and when focus ends.",enable:"Enable",enabled:"Enabled",blocked:"Blocked",week7:"Last 7 days",tasksDone:"Tasks done",focusSess:"Focus sessions",bestStreak:"Best streak",notifSoon:"In {m} min: {n}",notifTask:"Time for: {n}",notifFocus:"Timer finished!",appearance:"Appearance",light:"Light",dark:"Dark",auto:"System",language:"Language",
   examples:"Examples",examplesDesc:"Remove the sample tasks and habits.",remove:"Remove",
   tab_tareas:"Tasks",tab_agenda:"Agenda",tab_habitos:"Habits",tab_foco:"Focus",
@@ -914,6 +914,7 @@ document.addEventListener("click",function(e){
 });
 window.addEventListener("pagehide",save);
 render();
+window.addEventListener("beforeinstallprompt",function(e){e.preventDefault()});
 if("serviceWorker" in navigator&&/^https?:$/.test(location.protocol)){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}
 })();
 </script>
