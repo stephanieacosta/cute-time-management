@@ -37,4 +37,4 @@ Todo se guarda en `localStorage` (clave `nubi-tosti-planner-v1`). La app permite
 
 ## Vista previa al compartir el enlace
 
-Igual que Meowney: sin etiquetas `og:*`. WhatsApp toma el `<title>`, el `description` y el `apple-touch-icon` del `<head>`, con rutas que empiezan en `/`, sin necesidad de poner el dominio. Si ya compartiste el enlace antes, WhatsApp guarda la vista previa: prueba con `?v=2` al final.
+Igual que Meowney: sin etiquetas `og:*`. WhatsApp toma el `<title>` (al inicio del `<head>`), el `description` corto y el `apple-touch-icon`, con rutas que empiezan en `/`. WhatsApp guarda la vista previa en caché: si ya compartiste el enlace antes, prueba con `?v=2` al final.
